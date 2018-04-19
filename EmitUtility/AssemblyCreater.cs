@@ -58,6 +58,7 @@ namespace EmitUtility
                 typeRespond.UseTypeBuilder = tempTypeBuilder;
 
                 Dictionary<FieldBuilder, FiledMakeRequest> fieldDic;
+
                 //创造字段
                 AppendFileds(tempTypeBuilder, oneTypeRequest.LstFiled, out fieldDic);
 
@@ -151,6 +152,7 @@ namespace EmitUtility
 
             var tempTypeBuilder = inputModuleBuilder.DefineType(inputName, TypeAttributes.Public, parentType, lstInterfaceType.ToArray());
 
+
             //设置特性
             foreach (var oneAtrributeBuilder in lstClassAttributeBuilder)
             {
@@ -204,7 +206,7 @@ namespace EmitUtility
         {
             var tempUseTypeBuilder = inputClassBuilderBean.UseTypeBuilder;
 
-            var tempMethodBuilder = tempUseTypeBuilder.DefineMethod(inputRequest.Name,  MethodAttributes.Public | MethodAttributes.Virtual,
+            var tempMethodBuilder = tempUseTypeBuilder.DefineMethod(inputRequest.Name, MethodAttributes.Public|MethodAttributes.Virtual ,
                 inputRequest.ReturnType, inputRequest.ParameterTypes);
 
             inputRequest.UseMethodDel(tempMethodBuilder, inputClassBuilderBean);

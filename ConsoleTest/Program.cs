@@ -13,10 +13,7 @@ namespace ConsoleTest
     {
         static void Main(string[] args)
         {
-
-          
         }
-
 
        
     }
